@@ -1,7 +1,7 @@
-import { hello } from "@controller/controller";
-import express, { Router } from "express";
+import express, { Router } from 'express'
 
-export const routes: Router = express.Router();
+export const routes: Router = express.Router()
 
-routes.get("/", hello);
-
+routes.get('/', (_req, res) => {
+  res.json('Hello World')
+})
