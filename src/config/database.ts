@@ -1,8 +1,8 @@
+import dotenv from 'dotenv-safe'
+
+dotenv.config({ allowEmptyValues: true })
+
 export const databaseConfig = {
-  USER: process.env.POOL_USER,
-  PASSWORD: process.env.POOL_PASSWORD,
-  HOST: process.env.POOL_HOST,
-  PORT: process.env.POOL_PORT,
-  DATABASE: process.env.POOL_DATABASE,
-  MAX: process.env.POOL_MAX,
+  DB_NAME: process.env.DB_NAME ? process.env.DB_NAME : 'local_dev',
+  MONGO_URL: process.env.MONGO_URL ? process.env.MONGO_URL : 'mongodb://localhost:27017',
 }
