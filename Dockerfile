@@ -1,26 +1,22 @@
-FROM node:14.17.1 as base
+# Common build stage
+FROM node:16-alpine3.14 as common-build-stage
 
-# Add package file
-COPY package*.json ./
+COPY . ./app
 
-# Install deps
-RUN npm i
+WORKDIR /app
 
-# Copy source
-COPY src ./src
-COPY tsconfig.prod.json ./tsconfig.prod.json
-COPY tsconfig.json ./tsconfig.json
+RUN npm install
 
-# Build dist
 RUN npm run build
 
-# Start production image build
-FROM gcr.io/distroless/nodejs:14
-
-# Copy node modules and build directory
-COPY --from=base ./node_modules ./node_modules
-COPY --from=base /dist /dist
-
-# Expose port 3000
 EXPOSE 3000
-CMD ["dist/src/server.js"]
+
+FROM common-build-stage as production-build-stage
+
+ENV NODE_ENV production
+ENV PORT 3000
+
+RUN chown -R 1000:1000 /app/dist
+USER 1000
+
+CMD node dist/server.js
