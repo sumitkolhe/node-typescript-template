@@ -16,5 +16,6 @@ export const devConfig: Config = {
   },
   log: {
     format: 'dev',
+    level: 'debug',
   },
 }

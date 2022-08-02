@@ -1,4 +1,7 @@
+import { getConfig } from 'configs'
 import winston from 'winston'
+
+const config = getConfig()
 
 const levels = {
   error: 0,
@@ -6,12 +9,6 @@ const levels = {
   info: 2,
   http: 3,
   debug: 4,
-}
-
-const level = () => {
-  const env = process.env.NODE_ENV || 'development'
-  const isDevelopment = env === 'development'
-  return isDevelopment ? 'debug' : 'warn'
 }
 
 const colors = {
@@ -33,7 +30,7 @@ const format = winston.format.combine(
 const transports = [new winston.transports.Console()]
 
 export const logger = winston.createLogger({
-  level: level(),
+  level: config.log.level,
   levels,
   format,
   transports,

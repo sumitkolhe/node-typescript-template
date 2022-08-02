@@ -13,6 +13,7 @@ export interface Config {
     credentials: boolean
   }
   log: {
-    format: 'combined' | 'dev'
+    format: 'combined' | 'common' | 'dev' | 'short' | 'tiny'
+    level: 'error' | 'warn' | 'info' | 'http' | 'debug'
   }
 }
