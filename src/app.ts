@@ -3,11 +3,11 @@ import cors from 'cors'
 import express from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import { errorMiddleware } from '@middlewares/error.middleware'
-import { logger } from '@utils/logger'
+import { errorMiddleware } from 'middlewares/error.middleware'
+import { logger } from 'utils/logger'
 import { getConfig } from 'configs'
-import type { Config } from '@interfaces/config.interface'
-import type { Routes } from '@interfaces/routes.interface'
+import type { Config } from 'interfaces/config.interface'
+import type { Routes } from 'interfaces/routes.interface'
 
 export class App {
   public app: express.Application
