@@ -9,11 +9,9 @@ import { getConfig } from 'configs'
 import type { Config } from '@interfaces/config.interface'
 import type { Routes } from '@interfaces/routes.interface'
 
-process.env['NODE_CONFIG_DIR'] = `${__dirname}/configs`
-
 export class App {
   public app: express.Application
-  public port: string | number
+  public port: number
   public config: Config
   public env: string
 
