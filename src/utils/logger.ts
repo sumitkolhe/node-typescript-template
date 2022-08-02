@@ -30,16 +30,9 @@ const format = winston.format.combine(
   winston.format.printf((info) => `${info.timestamp} ${info.level}: ${info.message}`)
 )
 
-const transports = [
-  new winston.transports.Console(),
-  // new winston.transports.File({
-  //   filename: 'logs/error.log',
-  //   level: 'error',
-  // }),
-  // new winston.transports.File({ filename: 'logs/all.log' }),
-]
+const transports = [new winston.transports.Console()]
 
-export const Logger = winston.createLogger({
+export const logger = winston.createLogger({
   level: level(),
   levels,
   format,

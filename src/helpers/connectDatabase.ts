@@ -1,9 +1,11 @@
+import { getConfig } from 'configs'
 import mongoose from 'mongoose'
-import { databaseConfig } from '@src/config/database'
-import { Logger } from '@src/utils/logger'
+import { logger } from 'utils/logger'
+
+const config = getConfig()
 
 export const mongoOptions = {
-  dbName: databaseConfig.DB_NAME,
+  dbName: config.database.dbName,
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -12,9 +14,9 @@ export const mongoOptions = {
 
 export const connectDatabase = async (): Promise<void> => {
   try {
-    await mongoose.connect(databaseConfig.MONGO_URL, mongoOptions)
-    Logger.info('Connected To Database')
+    await mongoose.connect(config.database.dbUrl, mongoOptions)
+    logger.info('Connected To Database')
   } catch (error) {
-    Logger.error(error.message)
+    logger.error(error.message)
   }
 }
