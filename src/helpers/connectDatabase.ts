@@ -1,6 +1,6 @@
-import { getConfig } from 'configs'
 import mongoose from 'mongoose'
-import { logger } from 'utils/logger'
+import { getConfig } from '../configs'
+import { logger } from '../utils/logger'
 
 const config = getConfig()
 

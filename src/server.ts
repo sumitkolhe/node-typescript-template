@@ -1,7 +1,7 @@
 import 'dotenv/config'
-import { IndexRoute } from 'routes/index.route'
-import { App } from 'app'
+import { App } from './app'
+import { HelloWorldRoute } from './routes/hello.route'
 
-const app = new App([new IndexRoute()])
+const app = new App([new HelloWorldRoute()])
 
 app.listen()

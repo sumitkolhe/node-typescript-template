@@ -1,5 +1,5 @@
-import { getConfig } from 'configs'
 import winston from 'winston'
+import { getConfig } from '../configs'
 
 const config = getConfig()
 
