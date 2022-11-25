@@ -1,7 +1,0 @@
-{
-  "watch": ["src", ".env"],
-  "ext": "ts,js,json",
-  "ignore": ["node_modules", "coverage", "dist", ".git"],
-  "exec": "ts-node -r tsconfig-paths/register --transpile-only src/server.ts",
-  "restartable": "rs"
-}
